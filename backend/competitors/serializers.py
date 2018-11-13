@@ -3,5 +3,5 @@ from .models import Competitor
 
 class CompetitorSerializer(serializers.ModelSerializer):
         class Meta:
-            fields = ('id', 'email', 'license', 'name', 'surname',)
+            fields = ('id', 'email', 'license', 'name', 'surname', 'profile_pic')
             model = Competitor

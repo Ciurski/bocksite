@@ -8,7 +8,7 @@ class App extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/');
+      const res = await fetch('http://127.0.0.1:8000/api/competitors/');
       const competitors = await res.json();
       this.setState({
         competitors
@@ -25,6 +25,8 @@ class App extends Component {
           <div key={item.id}>
             <h1>{item.name}</h1>
             <span>{item.surname}</span>
+            <p></p>
+            <span>{item.license}</span>
           </div>
         ))}
       </div>
