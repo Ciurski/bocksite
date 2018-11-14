@@ -1,7 +1,11 @@
 from django.db import models
 
-# Create your models here.
+# extends user model
 class Competitor(models.Model):
+    user = models.OneToOneField(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
     email = models.EmailField()
     license = models.CharField(max_length=10)
     name = models.CharField(max_length=20)
