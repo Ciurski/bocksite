@@ -1,11 +1,8 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # extends user model
 class Competitor(models.Model):
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
+    user = models.OneToOneField(User, null=True,default=None, on_delete=models.SET_NULL)
     email = models.EmailField()
     license = models.CharField(max_length=10)
     name = models.CharField(max_length=20)

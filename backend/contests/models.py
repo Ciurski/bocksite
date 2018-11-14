@@ -8,11 +8,11 @@ class Contest(models.Model):
 
     competitors = models.ManyToManyField(
     Competitor,
-    through = 'Results',
+    through = 'Result',
     through_fields = ('contest', 'competitor')
     )
 
-class Results(models.Model):
+class Result(models.Model):
     # relations to Contest events and competitors
     contest = models.ForeignKey(Contest, on_delete=models.CASCADE)
     competitor = models.ForeignKey(Competitor, on_delete=models.CASCADE)
