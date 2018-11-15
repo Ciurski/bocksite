@@ -3,7 +3,7 @@ from .models import Contest, Result
 
 class ContestSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = ('start_time', 'end_time', 'description', 'competitors')
+        fields = ('start_time', 'end_time', 'description', 'title', 'competitors')
         model = Contest
 class ResultSerializer(serializers.ModelSerializer):
     class Meta:

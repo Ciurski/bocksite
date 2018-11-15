@@ -5,12 +5,17 @@ class Contest(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
     description = models.TextField(max_length=255)
+    title = models.TextField(max_length=25, default="Zawody")
 
     competitors = models.ManyToManyField(
     Competitor,
     through = 'Result',
     through_fields = ('contest', 'competitor')
     )
+
+    def __str__(self):
+        return "{} od: {} do: {}".format(self.title, str(self.start_time)[5:16],
+        str(self.end_time)[5:16])
 
 class Result(models.Model):
     # relations to Contest events and competitors
