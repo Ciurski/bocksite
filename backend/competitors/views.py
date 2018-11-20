@@ -25,15 +25,20 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def create(self, request, format=None):
         """
-        If possible match existing competitor and group to user.
-        Else create new competitor and match to new user.
+        if new competitor create - if egzisting make relation
         """
-        competitors = Competitor.objects.all()
         data = request.data
+        import pdb; pdb.set_trace()
         serializer_context = {'request': request}
         serializer = UserSerializer(data=data, context=serializer_context)
         if serializer.is_valid():
-            serializer.save()
+            user = serializer.save()
+            competitors = Competitor.objects.all()
+            for competitor in competitors:
+                if user.username == competitor.license:
+                    competitor.user = user
+                    competitor.save()
+                    user.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
