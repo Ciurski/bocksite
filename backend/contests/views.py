@@ -17,5 +17,5 @@ class ListResult(generics.ListCreateAPIView):
     serializer_class = ResultSerializer
 
 class DetailResult(generics.RetrieveUpdateDestroyAPIView):
-        queryset = Result.objects.all()
-        serializer_class = ResultSerializer
+    queryset = Result.objects.all()
+    serializer_class = ResultSerializer
