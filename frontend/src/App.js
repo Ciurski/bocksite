@@ -1,6 +1,6 @@
 // App.js
 import React, { Component } from 'react';
-
+import {Button, Navbar, NavItem} from 'react-materialize'
 class App extends Component {
   state = {
     competitors: []
@@ -21,6 +21,11 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Navbar className='green lighten-2' brand='logo' right>
+          <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
+          <NavItem href='components.html'>Components</NavItem>
+        </Navbar>
+
         {this.state.competitors.map(item => (
           <div key={item.id}>
             <h1>{item.name}</h1>
@@ -29,6 +34,7 @@ class App extends Component {
             <span>{item.license}</span>
           </div>
         ))}
+        <Button floating large className='red' waves='light' icon='add' />
       </div>
     );
   }
