@@ -6,6 +6,7 @@ class Contest(models.Model):
     end_time = models.DateTimeField()
     description = models.TextField(max_length=255)
     title = models.TextField(max_length=25, default="Zawody")
+    pic = models.ImageField(upload_to='profile_pics', blank=True)
 
     competitors = models.ManyToManyField(
     Competitor,

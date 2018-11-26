@@ -1,9 +1,11 @@
 // App.js
+import {Header} from "./header/header";
 import React, { Component } from 'react';
-import {Button, Navbar, NavItem} from 'react-materialize'
+import {Button} from 'react-materialize'
 class App extends Component {
   state = {
-    competitors: []
+    competitors: [],
+    contests: []
   };
 
   async componentDidMount() {
@@ -16,22 +18,43 @@ class App extends Component {
     } catch (e) {
       console.log(e);
     }
+    try {
+      const res1 = await fetch('http://127.0.0.1:8000/api/contests/contest/');
+      const contests = await res1.json();
+      this.setState({
+        contests
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   render() {
     return (
-      <div>
-        <Navbar className='green lighten-2' brand='logo' right>
-          <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
-          <NavItem href='components.html'>Components</NavItem>
-        </Navbar>
-
-        {this.state.competitors.map(item => (
-          <div key={item.id}>
-            <h1>{item.name}</h1>
-            <span>{item.surname}</span>
+      <div className="container">
+        <Header />
+        {this.state.contests.map(contest => (
+          <div className="row">
+            <div className="col s12 m6">
+              <div className="card">
+                <div className="card-image">
+                  <img src={contest.pic}></img>
+                  <span className="card-title">{contest.title}</span>
+                  <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                </div>
+                <div className="card-content">
+                  <p>{contest.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+        {this.state.competitors.map(competitor => (
+          <div key={competitor.id}>
+            <h1>{competitor.name}</h1>
+            <span>{competitor.surname}</span>
             <p></p>
-            <span>{item.license}</span>
+            <span>{competitor.license}</span>
           </div>
         ))}
         <Button floating large className='red' waves='light' icon='add' />
