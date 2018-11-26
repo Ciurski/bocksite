@@ -4,13 +4,12 @@ import {Navbar, NavItem} from 'react-materialize'
 export class Header extends Component {
   render() {
     return (
-      <div>
-        <Navbar className='green lighten-2' brand='logo' right>
+      <div className='navbar-fixed'>
+        <Navbar className='green lighten-2' brand='BOCK Rawicz' right>
           <NavItem onClick={() => console.log('test click')}>Zawody</NavItem>
           <NavItem onClick={() => console.log('test click')}>Kalędarz</NavItem>
           <NavItem onClick={() => console.log('test click')}>Treningi</NavItem>
-          <NavItem onClick={() => console.log('test click')}>Getting started</NavItem>
-          <NavItem href='components.html'>Components</NavItem>
+          <NavItem onClick={() => console.log('test click')}>Login</NavItem>
         </Navbar>
       </div>
     );

@@ -31,8 +31,9 @@ class App extends Component {
 
   render() {
     return (
+      <div>
+      <Header />
       <div className="container">
-        <Header />
         {this.state.contests.map(contest => (
           <div className="row">
             <div className="col s12 m6">
@@ -40,7 +41,7 @@ class App extends Component {
                 <div className="card-image">
                   <img src={contest.pic}></img>
                   <span className="card-title">{contest.title}</span>
-                  <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">add</i></a>
+                  <a className="btn-floating halfway-fab waves-effect waves-light red"><i className="material-icons">input</i></a>
                 </div>
                 <div className="card-content">
                   <p>{contest.description}</p>
@@ -58,6 +59,7 @@ class App extends Component {
           </div>
         ))}
         <Button floating large className='red' waves='light' icon='add' />
+      </div>
       </div>
     );
   }
