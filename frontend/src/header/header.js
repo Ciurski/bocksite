@@ -6,10 +6,10 @@ export class Header extends Component {
     return (
       <div className='navbar-fixed'>
         <Navbar className='green lighten-2' brand='BOCK Rawicz' right>
-          <NavItem onClick={() => console.log('test click')}>Zawody</NavItem>
-          <NavItem onClick={() => console.log('test click')}>Kalędarz</NavItem>
-          <NavItem onClick={() => console.log('test click')}>Treningi</NavItem>
-          <NavItem onClick={() => console.log('test click')}>Login</NavItem>
+          <NavItem href="/zawody">Zawody</NavItem>
+          <NavItem href="/kalendarz">Kalędarz</NavItem>
+          <NavItem href="/treningi">Treningi</NavItem>
+          <NavItem href="/login">Login</NavItem>
         </Navbar>
       </div>
     );
