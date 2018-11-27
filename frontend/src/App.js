@@ -33,6 +33,7 @@ class App extends Component {
     return (
       <div>
       <Header />
+  
       <div className="container">
         {this.state.contests.map(contest => (
           <div className="row">
@@ -50,6 +51,7 @@ class App extends Component {
             </div>
           </div>
         ))}
+
         {this.state.competitors.map(competitor => (
           <div key={competitor.id}>
             <h1>{competitor.name}</h1>

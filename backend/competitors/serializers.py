@@ -19,10 +19,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user = User.objects.create(**validated_data)
         try:
             competitor = Competitor.objects.get(license = competitor_data['license'])
-        except Competitor.DoesNotExist:
-            return False
-        import pdb; pdb.set_trace()
-        if competitor:
             if competitor.user == None:
                 competitor.user = user
                 competitor.name = competitor_data.get('name')
@@ -30,10 +26,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                 competitor.profile_pic = competitor_data.get('profile_pic')
                 competitor.save()
             else:
-                return user
-        else:
+                return competitor
+        except Competitor.DoesNotExist:
             Competitor.objects.create(user=user, **competitor_data)
-
         return user
 
     def update(self, instance, validated_data):

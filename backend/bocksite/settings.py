@@ -39,9 +39,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
+    'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny',],
+    "DATE_INPUT_FORMATS": ["%d-%m-%Y"]
 }
 
 # Application definition
