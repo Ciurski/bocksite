@@ -1,5 +1,4 @@
 // home.js
-
 import React, { Component } from 'react';
 import {Button} from 'react-materialize'
 export class Home extends Component {
