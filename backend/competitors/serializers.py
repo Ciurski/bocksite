@@ -12,9 +12,10 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = User
-        fields = ('id', 'url', 'username', 'email', 'competitor')
+        fields = ('id', 'url', 'username', 'password', 'email', 'competitor')
 
     def create(self, validated_data):
+        import pdb; pdb.set_trace()
         competitor_data = validated_data.pop('competitor')
         user = User.objects.create(**validated_data)
         try:

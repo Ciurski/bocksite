@@ -77,13 +77,16 @@ export class Register extends Component {
       //To be done:check for empty values before hitting submit
       var self = this;
       var payload={
-      "name": this.state.first_name,
-      "surname":this.state.last_name,
+      "username": this.state.user_name,
       "email":this.state.email,
-      "license":this.state.license
+      "competitor": {
+        "license":this.state.license,
+        "name": this.state.first_name,
+        "surname":this.state.last_name
+        }
       }
-      var dataJson = JSON.stringify(payload);
-      axios.post(apiBaseUrl+'/competitors/users/users/', dataJson)
+      
+      axios.post(apiBaseUrl+'/competitors/users/users/', payload)
      .then(function (response) {
        console.log(response);
        if(response.data.code == 200){
