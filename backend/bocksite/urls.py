@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf.urls.static import static
+from django.conf import settings
+from django.conf.urls import url
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/competitors/', include('competitors.urls')),
     path('api/announcements/', include('announcements.urls')),
+    path('api/contests/', include('contests.urls')),
+    url(r'^api-token-auth/', obtain_jwt_token),
 ]
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
