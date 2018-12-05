@@ -78,6 +78,7 @@ export class Register extends Component {
       var self = this;
       var payload={
       "username": this.state.user_name,
+      "password":this.state.password,
       "email":this.state.email,
       "competitor": {
         "license":this.state.license,
@@ -85,7 +86,7 @@ export class Register extends Component {
         "surname":this.state.last_name
         }
       }
-      
+
       axios.post(apiBaseUrl+'/competitors/users/users/', payload)
      .then(function (response) {
        console.log(response);

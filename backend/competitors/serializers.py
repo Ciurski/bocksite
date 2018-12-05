@@ -8,6 +8,7 @@ class CompetitorSerializer(serializers.ModelSerializer):
             fields = ('id', 'license', 'name', 'surname', 'profile_pic')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    password = serializers.CharField(write_only=True)
     competitor = CompetitorSerializer(many=False)
 
     class Meta:
@@ -15,9 +16,9 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('id', 'url', 'username', 'password', 'email', 'competitor')
 
     def create(self, validated_data):
-        import pdb; pdb.set_trace()
         competitor_data = validated_data.pop('competitor')
         user = User.objects.create(**validated_data)
+        user.set_password(validated_data['password'])
         try:
             competitor = Competitor.objects.get(license = competitor_data['license'])
             if competitor.user == None:
@@ -30,11 +31,13 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
                 return competitor
         except Competitor.DoesNotExist:
             Competitor.objects.create(user=user, **competitor_data)
+        user.save()
         return user
 
     def update(self, instance, validated_data):
         instance.username = validated_data.get('username', instance.username)
         instance.email = validated_data.get('email', instance.email)
+        instance.password = validated_data.get('password', instance.password)
         competitor_data = validated_data.get('competitor')
 
         competitor = Competitor.objects.get(license = competitor_data['license'])
