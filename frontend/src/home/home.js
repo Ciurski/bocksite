@@ -8,8 +8,16 @@ export class Home extends Component {
   };
 
   async componentDidMount() {
-
+    const auth =  sessionStorage.getItem('jwtToken');
+    console.log(auth)
     try {
+      const res2 = await fetch('http://127.0.0.1:8000/api/competitors/10/', {
+       method: 'GET',
+       headers:{
+          'Authorization': 'Bearer ' + auth
+          },
+     });
+
       const res1 = await fetch('http://127.0.0.1:8000/api/contests/contest/');
       const contests = await res1.json();
       this.setState({
