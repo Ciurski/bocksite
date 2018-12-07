@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import BackgroundImage from 'react-background-image-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Row, Col, Card} from 'react-materialize'
+import './login.css';
 import {Login} from './login';
 import {Register} from './register';
 
@@ -12,14 +15,15 @@ export class Loginscreen extends Component {
       password:'',
       loginscreen:[],
       loginmessage:'',
-      buttonLabel:'Register',
-      isLogin:true
+      buttonLabel:'Zarejestruj',
+      isLogin:true,
+      background:'./images/loginbg.jpg'
     }
   }
   componentWillMount(){
     var loginscreen=[];
     loginscreen.push(<Login parentContext={this} appContext={this.props.parentContext}/>);
-    var loginmessage = "Not registered yet, Register Now";
+    var loginmessage = "Nie posiadasz konta?";
     this.setState({
                   loginscreen:loginscreen,
                   loginmessage:loginmessage
@@ -31,39 +35,51 @@ export class Loginscreen extends Component {
       if(this.state.isLogin){
         var loginscreen=[];
         loginscreen.push(<Register parentContext={this}/>);
-        loginmessage = "Already registered.Go to Login";
+        loginmessage = "Posiadasz konto?";
         this.setState({
                        loginscreen:loginscreen,
                        loginmessage:loginmessage,
-                       buttonLabel:"Login",
+                       buttonLabel:"Zaloguj",
                        isLogin:false
                      })
       }
       else{
         var loginscreen=[];
         loginscreen.push(<Login parentContext={this}/>);
-        loginmessage = "Not Registered yet.Go to registration";
+        loginmessage = "Nie posiadasz konta?";
         this.setState({
                        loginscreen:loginscreen,
                        loginmessage:loginmessage,
-                       buttonLabel:"Register",
+                       buttonLabel:"Zarejestruj",
                        isLogin:true
                      })
       }
     }
+
   render() {
     return (
-      <div className="loginscreen">
+      <div className="loginscreen" style={{  backgroundImage: "url(" + this.state.background + ")",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',}}>
         {this.state.loginscreen}
         <div>
-          {this.state.loginmessage}
+          <Row className="text-center">
+            <Col m={3} l={4} />
+            <Col s={12} m={6} l={4}>
+            <Card className='opacity' title={this.state.loginmessage}>
+
           <MuiThemeProvider>
             <div>
                <RaisedButton label={this.state.buttonLabel} primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
            </div>
           </MuiThemeProvider>
+          </Card>
+          </Col>
+          </Row>
         </div>
       </div>
+
     );
   }
 }
