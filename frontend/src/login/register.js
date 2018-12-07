@@ -32,31 +32,31 @@ export class Register extends Component {
         <MuiThemeProvider>
           <div>
            <TextField
-             hintText="Enter your First Name"
-             floatingLabelText="First Name"
+             hintText="Wprowadź imię:"
+             floatingLabelText="Imię"
              onChange = {(event,newValue) => this.setState({first_name:newValue})}
              />
            <br/>
            <TextField
-             hintText="Enter your Last Name"
-             floatingLabelText="Last Name"
+             hintText="Wprowadź nazwisko:"
+             floatingLabelText="Nazwisko"
              onChange = {(event,newValue) => this.setState({last_name:newValue})}
              />
            <br/>
            <TextField
-             hintText="Wprowadź numer licencji"
+             hintText="Wprowadź numer licencji:"
              floatingLabelText="L-000000"
              onChange = {(event,newValue) => this.setState({license:newValue})}
              />
            <br/>
            <TextField
-             hintText="Nazwa użytkownik"
+             hintText="Nazwa użytkownika:"
              floatingLabelText="Nazwa"
              onChange = {(event,newValue) => this.setState({user_name:newValue})}
              />
            <br/>
            <TextField
-             hintText="Enter your Email"
+             hintText="Podaj adres email:"
              type="email"
              floatingLabelText="Email"
              onChange = {(event,newValue) => this.setState({email:newValue})}
@@ -64,8 +64,8 @@ export class Register extends Component {
            <br/>
            <TextField
              type = "password"
-             hintText="Enter your Password"
-             floatingLabelText="Password"
+             hintText="Wprowadź hasło:"
+             floatingLabelText="Hasło"
              onChange = {(event,newValue) => this.setState({password:newValue})}
              />
            <br/>

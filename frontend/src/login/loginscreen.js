@@ -3,6 +3,7 @@ import BackgroundImage from 'react-background-image-loader';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Row, Col, Card} from 'react-materialize'
+import './login.css';
 import {Login} from './login';
 import {Register} from './register';
 
@@ -66,7 +67,7 @@ export class Loginscreen extends Component {
           <Row className="text-center">
             <Col m={3} l={4} />
             <Col s={12} m={6} l={4}>
-            <Card title={this.state.loginmessage}>
+            <Card className='opacity' title={this.state.loginmessage}>
 
           <MuiThemeProvider>
             <div>

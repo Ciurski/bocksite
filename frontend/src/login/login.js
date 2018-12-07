@@ -50,20 +50,20 @@ render() {
         <Col m={3} l={4} />
         <Col s={12} m={6} l={4}>
         <p></p>
-        <Card className='white darken-1'>
+        <Card className='white darken-1 opacity'>
         <div className="card-conten align-center">
         <MuiThemeProvider>
 
            <TextField
-             hintText="Enter your Username"
-             floatingLabelText="Username"
+             hintText="Wprowadź nazwę użytkownika:"
+             floatingLabelText="Nazwa użytkownika"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
              <TextField className="center-align"
                type="password"
-               hintText="Enter your Password"
-               floatingLabelText="Password"
+               hintText="Wprowadź hasło"
+               floatingLabelText="Hasło"
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
