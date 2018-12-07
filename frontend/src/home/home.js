@@ -12,9 +12,9 @@ export class Home extends Component {
     console.log(auth)
     try {
       const res2 = await fetch('http://127.0.0.1:8000/api/competitors/10/', {
-       method: 'GET',
        headers:{
-          'Authorization': 'Bearer ' + auth
+         'Content-Type': 'aplication/jason',
+         'Authorization': 'Bearer ' + auth
           },
      });
 

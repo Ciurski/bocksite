@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import {Row, Col, Card} from 'react-materialize'
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
@@ -22,11 +23,14 @@ export class Register extends Component {
   render() {
     return (
       <div>
+      <Row className="text-center">
+        <Col m={3} l={4} />
+        <Col s={12} m={6} l={4}>
+        <p></p>
+        <Card className='white darken-1 opacity'>
+        <div className="card-conten align-center opacity">
         <MuiThemeProvider>
           <div>
-          <AppBar
-             title="Rejestracja"
-           />
            <TextField
              hintText="Enter your First Name"
              floatingLabelText="First Name"
@@ -65,9 +69,13 @@ export class Register extends Component {
              onChange = {(event,newValue) => this.setState({password:newValue})}
              />
            <br/>
-           <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+           <RaisedButton label="Prześlij" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
           </div>
          </MuiThemeProvider>
+         </div>
+         </Card>
+         </Col>
+         </Row>
       </div>
     );
   }

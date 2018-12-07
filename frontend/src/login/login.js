@@ -1,5 +1,6 @@
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
+import {Row, Col, Card} from 'react-materialize'
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
@@ -45,27 +46,34 @@ constructor(props){
 render() {
     return (
       <div>
+      <Row className="text-center">
+        <Col m={3} l={4} />
+        <Col s={12} m={6} l={4}>
+        <p></p>
+        <Card className='white darken-1'>
+        <div className="card-conten align-center">
         <MuiThemeProvider>
-          <div>
-          <AppBar
-             title="Login"
-           />
+
            <TextField
              hintText="Enter your Username"
              floatingLabelText="Username"
              onChange = {(event,newValue) => this.setState({username:newValue})}
              />
            <br/>
-             <TextField
+             <TextField className="center-align"
                type="password"
                hintText="Enter your Password"
                floatingLabelText="Password"
                onChange = {(event,newValue) => this.setState({password:newValue})}
                />
              <br/>
-             <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
-         </div>
+             <RaisedButton label="Zaloguj" color="green" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+
          </MuiThemeProvider>
+         </div>
+         </Card>
+         </Col>
+         </Row>
       </div>
     );
   }
