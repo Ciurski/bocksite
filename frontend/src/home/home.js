@@ -1,6 +1,7 @@
 // home.js
 import React, { Component } from 'react';
 import {Button} from 'react-materialize'
+import './home.css'
 export class Home extends Component {
   state = {
     competitors: [],
@@ -30,6 +31,7 @@ export class Home extends Component {
 
   render() {
     return (
+      <div className="bg">
       <div className="container">
         {this.state.contests.map(contest => (
           <div className="row">
@@ -47,8 +49,7 @@ export class Home extends Component {
             </div>
           </div>
         ))}
-
-
+      </div>
       </div>
     );
   }
