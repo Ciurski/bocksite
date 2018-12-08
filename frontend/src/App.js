@@ -1,6 +1,7 @@
 // App.js
 import {BrowserRouter, Route} from 'react-router-dom'
 import {Header} from "./header/header";
+import {Footer} from "./footer/footer";
 import {Home} from "./home/home";
 import {Login} from "./login/login";
 import {Loginscreen} from "./login/loginscreen";
@@ -15,6 +16,7 @@ class App extends Component {
       <Header />
       <Route path="/" exact render={() => <Home />} />
       <Route path="/login" exact render={() => <Loginscreen />} />
+      <Footer />
       </div>
       </BrowserRouter>
     );

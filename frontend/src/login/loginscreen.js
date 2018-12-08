@@ -60,6 +60,7 @@ export class Loginscreen extends Component {
     return (
       <div className="loginscreen" style={{  backgroundImage: "url(" + this.state.background + ")",
             backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',}}>
         {this.state.loginscreen}
