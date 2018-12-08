@@ -58,11 +58,7 @@ export class Loginscreen extends Component {
 
   render() {
     return (
-      <div className="loginscreen" style={{  backgroundImage: "url(" + this.state.background + ")",
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
-            backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat',}}>
+      <div className="loginscreen" style={{  backgroundImage: "url(" + this.state.background + ")"}}>
         {this.state.loginscreen}
         <div>
           <Row className="text-center">

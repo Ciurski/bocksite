@@ -35,7 +35,7 @@ export class Home extends Component {
       <div className="container">
         {this.state.contests.map(contest => (
           <div className="row">
-            <div className="col s12 m6">
+            <div className="col s12 m6 l4">
               <div className="card">
                 <div className="card-image">
                   <img src={contest.pic}></img>
