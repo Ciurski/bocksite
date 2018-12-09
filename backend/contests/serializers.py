@@ -5,6 +5,7 @@ class ContestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contest
         fields = ('start_time', 'end_time', 'description', 'title', 'competitors', 'pic')
+    
 
 
 class ResultSerializer(serializers.ModelSerializer):
@@ -12,4 +13,3 @@ class ResultSerializer(serializers.ModelSerializer):
         model = Result
         fields = ('contest', 'competitor', 'jury_confirmed', 'pcz', 'kczbo',
         'kczo', 'pd', 'kd', 'pp', 'kp', 'kcp', 'pcp', 'char')
-        

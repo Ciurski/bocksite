@@ -19,7 +19,7 @@ export class Home extends Component {
           },
      });
 
-      const res1 = await fetch('http://127.0.0.1:8000/api/contests/contest/');
+      const res1 = await fetch('http://127.0.0.1:8000/api/contests/contest/?q=closest');
       const contests = await res1.json();
       this.setState({
         contests
