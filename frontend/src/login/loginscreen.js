@@ -11,6 +11,8 @@ export class Loginscreen extends Component {
   constructor(props){
     super(props);
     this.state={
+      loginPage:[],
+      uploadScreen:[],
       username:'',
       password:'',
       loginscreen:[],

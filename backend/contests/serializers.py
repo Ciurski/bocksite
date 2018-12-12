@@ -4,8 +4,8 @@ from .models import Contest, Result
 class ContestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contest
-        fields = ('start_time', 'end_time', 'description', 'title', 'competitors', 'pic')
-    
+        fields = ('id', 'start_time', 'end_time', 'description', 'title', 'competitors', 'pic')
+
 
 
 class ResultSerializer(serializers.ModelSerializer):
